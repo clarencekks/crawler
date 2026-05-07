@@ -52,7 +52,7 @@ def upload_data_to_mysql(df: pd.DataFrame):
             index=False,
         )
     except Exception as e:
-        pass
+        print(e)
 
 
 # 註冊 task, 有註冊的 task 才可以變成任務發送給 rabbitmq
