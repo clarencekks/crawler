@@ -24,7 +24,10 @@ services:
     depends_on:
       - rabbitmq                           # 確保 RabbitMQ 先啟動後，Flower 再啟動
     networks:
-      - dev                               # 將服務加入 dev 網路
+      #- dev                               # 將服務加入 dev 網路
+      - my_network                         # 將服務加入 my_network 網路  
 
 networks:
-  dev:                                   # 定義一個名為 dev 的自訂網路，方便服務間互相連線
+  #dev:                                   # 定義一個名為 dev 的自訂網路，方便服務間互相連線
+  my_network:                            # 定義一個名為 my_network 的自訂網路
+    external: true                       # 表示這個網路是外部已存在的網路，不由 Docker Compose 管理 
